@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<center>
+<div class="container mt-5 p-3 bg-dark text-light" style="">
+<h2 class="text-center">Add Stock</h2>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+
+
+    </table><br>
+    <input type="submit">
+</form>
+    </div>
+</center>
+{% endblock %}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container border border-2 border-light shadow mt-5 p-5 w-50">
+
+<h2 class="text-center">Add category Details</h2>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+
+
+    </table>
+    <input type="submit">
+</form>
+    </div>
+
+{% endblock %}

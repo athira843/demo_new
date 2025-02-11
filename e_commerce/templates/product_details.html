@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>details</title>
+    {% endblock %}
+
+{% block content %}
+<div class="container border border-2 border-light shadow mt-5 p-5 m-25">
+    <div class="row">
+<div class="col-md-12">
+
+<img src="{{products.image.url}}" style="float:left;width:300px;height:300px; margin-right:10px;" class="img-thumbnail" alt="...">
+
+
+   <h4>{{products.name}}</h4>
+    <h4>{{products.price}}</h4>
+    <h5>Available Stock:{{products.stock}}</h5>
+    <p>Product Details:<br>{{products.description}}</p>
+    {% if user.is_superuser %}
+    {% if products.stock > 0 %}
+    <p>Product in Stock</p>
+    <a class="buy-now-button btn btn-danger" href="{% url 'shop:addstock' products.id %}" >Add Stock</a>
+    {% else %}
+    <p>Product Out of Stock</p>
+    <a class="buy-now-button btn btn-danger" href="{% url 'shop:addstock' products.id %}" >Add Stock</a>
+    {% endif %}
+
+    {% else %}
+     {% if products.stock > 0 %}
+
+    <a class="buy-now-button btn btn-warning"  href="{% url 'cart:add_to_cart' products.id %}">Add to Cart</a>
+{% else %}
+    <p>Product Out of Stock</p>
+    {% endif %}
+    {% endif %}
+
+</div>
+    </div>
+</div>
+
+{% endblock %}
