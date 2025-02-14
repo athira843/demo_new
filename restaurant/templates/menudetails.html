@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>details</title>
+    {% endblock %}
+
+{% block content %}
+<div class="container border border-2 border-light shadow mt-5 p-5 m-25">
+<h2 class="text-center mt-2" >Menu Details</h2>
+   <h2>Name : {{menu.name}}</h2>
+    <h5>Description : {{menu.description}}</h5>
+
+
+
+    {%  for i in menu.menuitems.all  %}
+
+<ul>
+        <li>{{i.name}}-----{{i.price}}</li></ul>
+
+    {% if user.is_superuser %}
+
+     <a class="buy-now-button btn btn-danger" href="{% url 'addprice' i.id %}">Update Price</a>
+
+
+    {% endif %}
+
+
+
+
+
+
+    {% endfor %}
+
+
+
+    </div>
+{% endblock %}

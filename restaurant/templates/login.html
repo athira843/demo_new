@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container border border-2 border-light shadow mt-5 p-5 w-50">
+
+<div class="container w-50 mx-auto">
+<h2 class="text-center">Login...</h2>
+<form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+   <div class="mb-3 mt-3">
+       <label class="form-label">Username</label>
+       <input type="text" class="form-control" name="u" placeholder="Enter name">
+   </div>
+    <div class="mb-3 mt-3">
+       <label class="form-label">Password</label>
+       <input type="password" class="form-control"  name="p" placeholder="Enter password">
+   </div>
+    <div class="mb-5 mt-5">
+        <input type="submit" class="btn btn-outline-danger fw-bold">
+    </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
